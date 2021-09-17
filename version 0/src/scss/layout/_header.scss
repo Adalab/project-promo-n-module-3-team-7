@@ -1,0 +1,42 @@
+.header {
+  display        : flex;
+  justify-content: center;
+  margin-bottom  : 35px;
+  margin         : 30px auto 30px auto;
+
+  @include tablet {
+    display        : flex;
+    justify-content: center;
+    flex-grow      : 6;
+    margin         : 0;
+    align-items    : flex-end;
+  }
+
+  &__image--index {
+    width       : 250px;
+    margin-left : auto;
+    margin-right: auto;
+
+    @include desktop {
+      width: 419px;
+    }
+  }
+}
+
+.header__profile-cards {
+  display        : flex;
+  justify-content: center;
+  margin-bottom  : 35px;
+  margin         : 30px auto 30px auto;
+
+  @include tablet {
+    justify-content: left;
+  }
+
+  .header__image--index {
+    @include tablet {
+      width      : 201px;
+      margin-left: 40px;
+    }
+  }
+}

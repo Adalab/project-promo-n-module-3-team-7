@@ -1,0 +1,103 @@
+.design {
+  &__container {
+    display        : flex;
+    justify-content: space-between;
+    margin-top     : 22px;
+    margin-left    : 39px;
+
+    @include tablet {
+      margin-left: 40px;
+    }
+
+    @include desktop {
+      margin-left: 0px;
+    }
+  }
+
+  &__title {
+    font-size     : 14px;
+    font-weight   : normal;
+    text-transform: uppercase;
+    color         : $primary-color;
+    font-family   : $body-font;
+  }
+
+  &__palette {
+    display              : grid;
+    grid-template-columns: 17px 10px 90px;
+    grid-template-rows   : 25px 20px;
+  }
+
+  &__wrapper-palette {
+    display    : flex;
+    grid-column: 3;
+  }
+
+  &__palette--input {
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+  }
+
+  &__input {
+    -webkit-appearance: none;
+    -moz-appearance   : none;
+    appearance        : none;
+    border-radius     : 50%;
+    width             : 17px;
+    height            : 17px;
+    margin            : 0;
+    border            : 1px solid $pinkish-grey;
+    transition        : 0.2s all linear;
+
+    &:checked {
+      border: 6px solid #3db0f7;
+    }
+  }
+
+  &__palette--one {
+    &-color-one {
+      background-color: $pallete-one-1;
+    }
+
+    &-color-two {
+      background-color: $pallete-one-2;
+    }
+
+    &-color-three {
+      background-color: $pallete-one-3;
+    }
+  }
+
+  &__palette--two {
+    &-color-one {
+      background-color: $pallete-two-1;
+    }
+
+    &-color-two {
+      background-color: $pallete-two-2;
+    }
+
+    &-color-three {
+      background-color: $pallete-two-3;
+    }
+  }
+
+  &__palette--three {
+    &-color-one {
+      background-color: $pallete-three-1;
+    }
+
+    &-color-two {
+      background-color: $pallete-three-2;
+    }
+
+    &-color-three {
+      background-color: $pallete-three-3;
+    }
+  }
+}
+
+ .arrow{
+   transform: rotate(180deg);
+ }

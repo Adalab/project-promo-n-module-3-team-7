@@ -1,0 +1,48 @@
+//fonts
+$title-principal: "Merriweather",
+serif;
+$title-font: "Montserrat",
+sans-serif;
+$body-font: "Open Sans",
+sans-serif;
+
+//Colors general
+$black       : #000000;
+$gun-metal   : #54585a;
+$light-khaki : #f9f4dc;
+$white       : #fff;
+$dull        : #e17334;
+$pinkish-grey: #c5c5c5;
+
+// palette-one
+$dark-green-blue: #114e4e;
+$dirty-blue     : #438792;
+$hospital-green : #a2deaf;
+// palette-two
+$dried-blood    : #420101;
+$rusty-red      : #bd1010;
+$tomato         : #e95626;
+// palette-three
+$slate          : #3e5b65;
+$faded-orange   : #eab052;
+$light-grey-blue: #a0c0cf;
+
+// Colors for section (variables)
+$primary-color    : $gun-metal;
+$primary-color-alt: $dark-green-blue;
+$icon-color       : $dull;
+$border-form      : $hospital-green;
+$text-form-color  : $pinkish-grey;
+
+// palette-one (variables)
+$pallete-one-1  : $dark-green-blue;
+$pallete-one-2  : $dirty-blue;
+$pallete-one-3  : $hospital-green;
+// palette-two (variables)
+$pallete-two-1  : $dried-blood;
+$pallete-two-2  : $rusty-red;
+$pallete-two-3  : $tomato;
+// palette-three (variables)
+$pallete-three-1: $slate;
+$pallete-three-2: $faded-orange;
+$pallete-three-3: $light-grey-blue;

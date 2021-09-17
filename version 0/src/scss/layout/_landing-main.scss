@@ -1,0 +1,131 @@
+.landing__body {
+  display         : flex;
+  flex-direction  : column;
+  justify-content : center;
+  height          : 86vh;
+  margin-bottom   : 40px;
+  background-color: #f5f5f5;
+
+  @include tablet {
+    height: 95vh;
+  }
+}
+
+.landing {
+  display       : flex;
+  flex-direction: column;
+  align-items   : center;
+  text-align    : center;
+
+  @include tablet {
+    flex-grow: 4;
+  }
+
+  &__title {
+    font-size  : 19px;
+    line-height: 1.8;
+    font-family: $title-principal;
+    color      : $icon-color;
+
+    @include tablet {
+      margin-top : 30px;
+      font-size  : 24px;
+      line-height: normal;
+    }
+  }
+
+  &__text {
+    max-width    : 331px;
+    margin-right : auto;
+    margin-left  : auto;
+    margin-bottom: 18px;
+    padding-left : 30px;
+    padding-right: 30px;
+
+    @include tablet {
+      height       : 48px;
+      width        : 331;
+      margin-top   : 0;
+      margin-bottom: 27px;
+      padding      : 0;
+      font-size    : 16px;
+    }
+  }
+
+  &__container {
+    width        : 268px;
+    height       : 74px;
+    margin-right : auto;
+    margin-bottom: 40px;
+    margin-left  : auto;
+    padding-left : 20px;
+    padding-right: 20px;
+    border       : solid 2px rgba(225, 115, 52, 0.2);
+    border-radius: 4px;
+
+    @include tablet {
+      width        : 325px;
+      height       : 86px;
+      border-radius: 5px;
+      margin       : 0;
+    }
+
+    &--list {
+      display              : grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding-top          : 15px;
+
+      &__item {
+        display           : grid;
+        grid-template-rows: 1fr 1fr;
+        line-height       : 1.1;
+
+        @include tablet {
+          font-size: 16px;
+        }
+
+        .icon {
+          font-size: 22px;
+          color    : $icon-color;
+
+          @include tablet {
+            font-size: 28px;
+          }
+        }
+      }
+    }
+  }
+
+  &__button {
+    display        : flex;
+    justify-content: center;
+
+  
+    @include tablet {
+      display      : flex;
+      align-items  : flex-end;
+      flex-grow    : 1;
+      margin-bottom: 56px;
+    }
+
+    &--link {
+      display         : flex;
+      justify-content : center;
+      align-items     : center;
+      width           : 130px;
+      height          : 42px;
+      padding         : 15px;
+      border-radius   : 21px;
+      font-size       : 16px;
+      text-transform  : uppercase;
+      text-decoration : none;
+      color           : $white;
+      background-color: $dirty-blue;
+
+      &:hover{
+        background-color: $white;
+        color:$dirty-blue;
+        border: solid 2px $dirty-blue;
+      }}
+  }
+}

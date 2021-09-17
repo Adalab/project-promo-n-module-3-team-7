@@ -1,0 +1,88 @@
+.fa-share-alt {
+  color: $dull;
+}
+
+.share__section--create {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 60px 30px 61px;
+  border-bottom: 1px solid $pinkish-grey;
+
+  &__button {
+    width: 199px;
+    height: 50px;
+    border-radius: 12px;
+    background-color: $dull;
+    border: 0px;
+    padding: 0px;
+    color: $white;
+    font-size: 18px;
+    margin: 13px 18px 13px 17px;
+    text-transform: uppercase;
+
+    &:hover{
+      background-color:$white ;
+      color: $dull;
+      border: $dull solid 2px;
+      cursor: pointer;
+      
+    }
+  }
+}
+
+.fa-address-card {
+  font-size: 22px;
+  margin: auto;
+}
+
+.share__section--done {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items    : center;
+  //border-bottom  : 1px solid $pinkish-grey;
+
+  &__text {
+    padding: 20px 50px 0 51px;
+    font-size: 18px;
+    font-weight: 600;
+    color: $gun-metal;
+    text-align: center;
+  }
+
+  &__link {
+    padding: 5px 13px 10px 15px;
+    margin-top: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    color: $dull;
+    text-align: center;
+  }
+
+  &__button {
+    width: 181px;
+    height: 30px;
+    border-radius: 3px;
+    border: 0px;
+    padding: 0px;
+    background-color: #00a0f5;
+    margin: 10px 33px 30px 29px;
+  }
+
+  &__button--link {
+    text-decoration: none;
+    color: $white;
+    font-size: 14px;
+    line-height: 1.43;
+  }
+}
+
+.fa-twitter {
+  font-size: 18px;
+}
+.hidden {
+  display: none;
+}

@@ -1,0 +1,36 @@
+.profile-cards__main {
+  background: linear-gradient(#f5f5f5, #ffffff);
+}
+@include tablet {
+  .main-responsive {
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 27px;
+  }
+  .section-prewiew-responsive {
+    width: 50%;
+  }
+  .section-options-responsive {
+    width: 50%;
+  }
+}
+@include desktop {
+  .section-prewiew-responsive {
+    width: 60%;
+  }
+  .section-options-responsive {
+    width: 40%;
+    margin-top: 27px;
+    margin-left: 40px;
+  }
+}
+
+
+.hide{
+  display:none;
+}
+
+.arrow{
+  transform: rotate(180deg);
+
+}
