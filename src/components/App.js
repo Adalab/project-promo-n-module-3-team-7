@@ -7,16 +7,38 @@ import imagePreview from '../images/img_girl.jpg';
 import { useState } from 'react';
 
 function App() {
-  const [theme, setTheme] = useState('hide');
-  const [arrow, setArrow] = useState('');
+  const [themeDesign, setThemeDesign] = useState('hide');
+  const [themeFill, setThemeFill] = useState('hide');
+  const [themeShare, setThemeShare] = useState('hide');
+  const [arrowDesign, setArrowDesign] = useState('');
+  const [arrowFill, setArrowFill] = useState('');
+  const [arrowShare, setArrowShare] = useState('');
 
-  const handleCollapsable = () => {
-    if (theme === 'hide') {
-      setTheme('');
-      setArrow('arrow');
+  const handleCollapsable = (ev) => {
+    let clickedElement = ev.currentTarget.dataset.id;
+    const collapsableElement = console.log(ev.target);
+    console.log(ev.currentTarget);
+    if (clickedElement === 'design') {
+      setThemeDesign('');
+      setThemeFill('hide');
+      setThemeShare('hide');
+      setArrowDesign('arrow');
+      setArrowFill('');
+      setArrowShare('');
+    } else if (clickedElement === 'fill') {
+      setThemeDesign('hide');
+      setThemeFill('');
+      setThemeShare('hide');
+      setArrowDesign('');
+      setArrowFill('arrow');
+      setArrowShare('');
     } else {
-      setTheme('hide');
-      setArrow('');
+      setThemeDesign('hide');
+      setThemeFill('hide');
+      setThemeShare('');
+      setArrowDesign('');
+      setArrowFill('');
+      setArrowShare('arrow');
     }
   };
 
@@ -97,7 +119,7 @@ function App() {
                 <div className="page-wrapper">
                   <div
                     className="js-collapsible collapsable__section--title-1 js_collapsable_design_button"
-                    value="design"
+                    data-id="design"
                     onClick={handleCollapsable}
                   >
                     <div className="title-icon">
@@ -105,13 +127,13 @@ function App() {
                       <h2 className="title-text">diseña</h2>
                     </div>
                     <i
-                      className={`far fa-chevron-up js_arrow_design ${arrow}`}
+                      className={`far fa-chevron-up js_arrow_design ${arrowDesign}`}
                     ></i>
                   </div>
                 </div>
 
                 <div
-                  className={`page-wrapper design__container selection js_collapsable_design ${theme}`}
+                  className={`page-wrapper design__container selection js_collapsable_design ${themeDesign}`}
                 >
                   <legend className="design__title">Colores</legend>
 
@@ -181,19 +203,24 @@ function App() {
               <fieldset className="fill">
                 <div className="page-wrapper">
                   <div
-                    className="js-collapsible collapsable__section--title js_collapsable_fill_button "
-                    value="fill"
+                    className="js-collapsible collapsable__section--title js_collapsable_fill_button"
+                    data-id="fill"
+                    onClick={handleCollapsable}
                   >
                     <div className="title-icon">
                       <i className="far fa-keyboard"></i>
                       <h2 className="title-text">rellena</h2>
                     </div>
-                    <i className="far fa-chevron-up js_arrow_fill"></i>
+                    <i
+                      className={`far fa-chevron-up js_arrow_fill ${arrowFill}`}
+                    ></i>
                   </div>
                 </div>
 
                 <div className="page-wrapper">
-                  <section className="fill__section--form js_collapsable_fill hide">
+                  <section
+                    className={`fill__section--form js_collapsable_fill ${themeFill}`}
+                  >
                     <label htmlFor="name">Nombre completo</label>
                     <input
                       type="text"
@@ -270,10 +297,13 @@ function App() {
                 <div className="page-wrapper">
                   <div
                     className="js-collapsible collapsable__section--title js_collapsable_share_button"
-                    value="share"
+                    data-id="share"
+                    onClick={handleCollapsable}
                   >
                     <div className="title-icon">
-                      <i className="far icon1 fas fa-share-alt"></i>
+                      <i
+                        className={`far icon1 fas fa-share-alt ${arrowShare}`}
+                      ></i>
                       <h2 className="title-text">comparte</h2>
                     </div>
                     <i className="far fa-chevron-up js_arrow_share"></i>
@@ -281,7 +311,9 @@ function App() {
                 </div>
 
                 <div className="page-wrapper">
-                  <div className="share__section--create js_collapsable_share hide">
+                  <div
+                    className={`share__section--create js_collapsable_share ${themeShare}`}
+                  >
                     <button className="share__section--create__button js_share--btn">
                       <i className="icon2 far fa-address-card"></i> &nbsp;Crear
                       tarjeta
