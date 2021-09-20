@@ -4,7 +4,23 @@ import '../styles/App.scss';
 import logoHeader from '../images/logo-awesome-profile-cards.svg';
 import logo from '../images/logo-adalab.png';
 import imagePreview from '../images/img_girl.jpg';
+import { useState } from 'react';
+
 function App() {
+  const [theme, setTheme] = useState('hide');
+  const [arrow, setArrow] = useState('');
+
+  const handleCollapsable = () => {
+    if (theme === 'hide') {
+      setTheme('');
+      setArrow('arrow');
+    } else {
+      setTheme('hide');
+      setArrow('');
+    }
+  };
+
+  //const styles = `page-wrapper design__container selection js_collapsable_design ${theme}`;
   return (
     <>
       <header className="header__profile-cards">
@@ -82,16 +98,21 @@ function App() {
                   <div
                     className="js-collapsible collapsable__section--title-1 js_collapsable_design_button"
                     value="design"
+                    onClick={handleCollapsable}
                   >
                     <div className="title-icon">
                       <i className="far fa-object-ungroup"></i>
                       <h2 className="title-text">diseña</h2>
                     </div>
-                    <i className="far fa-chevron-up js_arrow_design arrow"></i>
+                    <i
+                      className={`far fa-chevron-up js_arrow_design ${arrow}`}
+                    ></i>
                   </div>
                 </div>
 
-                <div className="page-wrapper design__container selection js_collapsable_design">
+                <div
+                  className={`page-wrapper design__container selection js_collapsable_design ${theme}`}
+                >
                   <legend className="design__title">Colores</legend>
 
                   <div className="design__wrapper--pallets">
