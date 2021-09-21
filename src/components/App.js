@@ -13,70 +13,70 @@ function App() {
   const [arrowDesign, setArrowDesign] = useState('');
   const [arrowFill, setArrowFill] = useState('');
   const [arrowShare, setArrowShare] = useState('');
-  const [data, setData] = useState( 
+  const [data, setData] = useState(
     {
-    palette: '',
-    name: 'unicornio',
-    job: '',
-    phone: '',
-    email: '',
-    linkedin: '',
-    github: '',
-    photo: '',
-  }
+      palette: '',
+      name: '',
+      job: '',
+      phone: '',
+      email: '',
+      linkedin: '',
+      github: '',
+      photo: '',
+    }
   );
-  /*let nameToDisplay;
-  if(data.name === ''){
+  let nameToDisplay;
+  if (data.name === '') {
     nameToDisplay = 'Nombre Apellido';
-  }else{
+  } else {
     nameToDisplay = data.name;
   }
 
   let jobToDisplay;
-  if(data.job === ''){
+  if (data.job === '') {
     jobToDisplay = 'Front-end developer';
-  }else{
+  } else {
     jobToDisplay = data.job;
-  }*/
+  }
   const handleInput = (ev) => {
     const whichInput = ev.currentTarget.name;
-    if(whichInput === 'name'){
-      setData(  
+    if (whichInput === 'name') {
+      setData(
         {
           ...data,
           name: ev.currentTarget.value
         }
       )
-    } else if(whichInput === 'job'){
-      setData(  
+    } else if (whichInput === 'job') {
+      setData(
         {
           ...data,
           job: ev.currentTarget.value
         }
       )
-    }else if(whichInput === 'phone'){
-      setData(  
+    } else if (whichInput === 'phone') {
+      setData(
         {
           ...data,
           phone: ev.currentTarget.value
         }
       )
-    }else if(whichInput === 'email'){
-      setData(  
+    } else if (whichInput === 'email') {
+      setData(
         {
           ...data,
           email: ev.currentTarget.value
         }
       )
-    }else if(whichInput === 'linkedin'){
-      setData(  
+    } else if (whichInput === 'linkedin') {
+      setData(
         {
           ...data,
           linkedin: ev.currentTarget.value
         }
       )
-    }else{
-      setData(  
+    } else {
+      setData(
         {
           ...data,
           github: ev.currentTarget.value
@@ -138,10 +138,10 @@ function App() {
                   <div className="preview__card--bullet js_bullet"></div>
                   <div className="preview__card--title js_title">
                     <h2 className="preview__card--name js_preview_name">
-                      {data.name}
+                      {nameToDisplay}
                     </h2>
                     <h3 className="preview__card--job js_preview_job">
-                      {data.job}
+                      {jobToDisplay}
                     </h3>
                   </div>
                 </div>
@@ -299,6 +299,7 @@ function App() {
                       placeholder="Ej: Sally Jill"
                       className="name js_name"
                       onChange={handleInput}
+                      value={data.name}
                     />
 
                     <label htmlFor="position">Puesto</label>
@@ -308,6 +309,7 @@ function App() {
                       name="job"
                       placeholder="Ej: Front-end unicorn"
                       onChange={handleInput}
+                      value={data.job}
                     />
 
                     <label name="img-selector">Imagen de perfil</label>
@@ -322,6 +324,7 @@ function App() {
                         type="file"
                         name="photo"
                         id="img-selector"
+
                         className="action__hiddenField js__profile-upload-btn"
                       />
                       <div className="profile__preview js__profile-preview"></div>
@@ -332,6 +335,7 @@ function App() {
                       type="email"
                       id="email"
                       name="email"
+                      value={data.email}
                       placeholder="Ej: sally-hill@gmail.com"
                       className="js_email"
                       onChange={handleInput}
@@ -344,6 +348,7 @@ function App() {
                       name="phone"
                       placeholder="Ej: 555-55-55-55"
                       className="js_phone"
+                      value={data.phone}
                       onChange={handleInput}
                     />
 
@@ -354,6 +359,7 @@ function App() {
                       name="linkedin"
                       placeholder="Ej: linkedin.com/in/sally.hill"
                       className="js_linkedin"
+                      value={data.linkedin}
                       onChange={handleInput}
                     />
 
@@ -362,6 +368,7 @@ function App() {
                       type="text"
                       id="github"
                       name="github"
+                      value={data.github}
                       placeholder="User Ej: sally-hill"
                       className="js_github"
                       onChange={handleInput}
