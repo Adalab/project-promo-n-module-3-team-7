@@ -1,161 +1,31 @@
 import { useState } from 'react';
-const SectionOptions = () => {
-  const [themeDesign, setThemeDesign] = useState('hide');
-  const [themeFill, setThemeFill] = useState('hide');
-  const [themeShare, setThemeShare] = useState('hide');
-  const [arrowDesign, setArrowDesign] = useState('');
-  const [arrowFill, setArrowFill] = useState('');
-  const [arrowShare, setArrowShare] = useState('');
-  const [data, setData] = useState({
-    palette: '',
-    name: '',
-    job: '',
-    phone: '',
-    email: '',
-    linkedin: '',
-    github: '',
-    photo: '',
-  });
-  const handleInput = (ev) => {
-    const whichInput = ev.currentTarget.name;
-    if (whichInput === 'name') {
-      setData({
-        ...data,
-        name: ev.currentTarget.value,
-      });
-    } else if (whichInput === 'job') {
-      setData({
-        ...data,
-        job: ev.currentTarget.value,
-      });
-    } else if (whichInput === 'phone') {
-      setData({
-        ...data,
-        phone: ev.currentTarget.value,
-      });
-    } else if (whichInput === 'email') {
-      setData({
-        ...data,
-        email: ev.currentTarget.value,
-      });
-    } else if (whichInput === 'linkedin') {
-      setData({
-        ...data,
-        linkedin: ev.currentTarget.value,
-      });
-    } else {
-      setData({
-        ...data,
-        github: ev.currentTarget.value,
-      });
-    }
-  };
-  const handleCollapsable = (ev) => {
-    let clickedElement = ev.currentTarget.dataset.id;
-    console.log(ev.currentTarget);
-    if (clickedElement === 'design') {
-      setThemeDesign('');
-      setThemeFill('hide');
-      setThemeShare('hide');
-      setArrowDesign('arrow');
-      setArrowFill('');
-      setArrowShare('');
-    } else if (clickedElement === 'fill') {
-      setThemeDesign('hide');
-      setThemeFill('');
-      setThemeShare('hide');
-      setArrowDesign('');
-      setArrowFill('arrow');
-      setArrowShare('');
-    } else {
-      setThemeDesign('hide');
-      setThemeFill('hide');
-      setThemeShare('');
-      setArrowDesign('');
-      setArrowFill('');
-      setArrowShare('arrow');
-    }
-  };
+import Design from './Design';
+// const [themeDesign, setThemeDesign] = useState('hide');
+// const [themeFill, setThemeFill] = useState('hide');
+// const [themeShare, setThemeShare] = useState('hide');
+// const [arrowDesign, setArrowDesign] = useState('');
+// const [arrowFill, setArrowFill] = useState('');
+// const [arrowShare, setArrowShare] = useState('');
+// const [data, setData] = useState({
+//   palette: '',
+//   name: '',
+//   job: '',
+//   phone: '',
+//   email: '',
+//   linkedin: '',
+//   github: '',
+//   photo: '',
+// });
+const Form = (props) => {
 
   return (
+
     <section className="section-options-responsive">
       <form className="js_form">
-        <fieldset className="design">
-          <div className="page-wrapper">
-            <div
-              className="js-collapsible collapsable__section--title-1 js_collapsable_design_button"
-              data-id="design"
-              onClick={handleCollapsable}
-            >
-              <div className="title-icon">
-                <i className="far fa-object-ungroup"></i>
-                <h2 className="title-text">diseña</h2>
-              </div>
-              <i
-                className={`far fa-chevron-up js_arrow_design ${arrowDesign}`}
-              ></i>
-            </div>
-          </div>
 
-          <div
-            className={`page-wrapper design__container selection js_collapsable_design ${themeDesign}`}
-          >
-            <legend className="design__title">Colores</legend>
 
-            <div className="design__wrapper--pallets">
-              <div className="design__palette design__palette--one">
-                <div className="design__palette--input">
-                  <input
-                    className="design__input js_palette js_palette_one"
-                    id="palette-one"
-                    type="radio"
-                    value="1"
-                    name="palette"
-                  />
-                </div>
-                <label htmlFor="palette" className="design__wrapper-palette">
-                  <span className="box-design design__palette--one-color-one"></span>
-                  <span className="box-design design__palette--one-color-two"></span>
-                  <span className="box-design design__palette--one-color-three"></span>
-                </label>
-              </div>
+        <Design />
 
-              <div className="design__palette design__palette--two">
-                <div className="design__palette--input">
-                  <input
-                    className="design__input js_palette js_palette_two"
-                    id="palette-two"
-                    type="radio"
-                    value="2"
-                    name="palette"
-                  />
-                </div>
-                <label htmlFor="palette" className="design__wrapper-palette">
-                  <span className="box-design design__palette--two-color-one"></span>
-                  <span className="box-design design__palette--two-color-two"></span>
-                  <span className="box-design design__palette--two-color-three"></span>
-                </label>
-              </div>
-
-              <div className="design__palette design__palette--three">
-                <div className="design__palette--input">
-                  <input
-                    className="design__input js_palette js_palette_three"
-                    id="palette-three"
-                    type="radio"
-                    value="3"
-                    name="palette"
-                  />
-                </div>
-                <label htmlFor="palette1" className="design__wrapper-palette">
-                  <span className="box-design design__palette--three-color-one"></span>
-                  <span className="box-design design__palette--three-color-two"></span>
-                  <span className="box-design design__palette--three-color-three"></span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </fieldset>
         <fieldset className="fill">
           <div className="page-wrapper">
             <div
@@ -310,4 +180,4 @@ const SectionOptions = () => {
     </section>
   );
 };
-export default SectionOptions;
+export default Form;
