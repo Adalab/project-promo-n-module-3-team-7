@@ -1,29 +1,31 @@
 import imagePreview from '../images/img_girl.jpg';
-import { useState } from 'react';
-const SectionPreview = () => {
-  const [data, setData] = useState({
-    palette: '',
-    name: '',
-    job: '',
-    phone: '',
-    email: '',
-    linkedin: '',
-    github: '',
-    photo: '',
-  });
-  let nameToDisplay;
-  if (data.name === '') {
-    nameToDisplay = 'Nombre Apellido';
-  } else {
-    nameToDisplay = data.name;
-  }
+import '../styles/App.scss';
+//import { useState } from 'react';
+// const [data, setData] = useState({
+//   palette: '',
+//   name: '',
+//   job: '',
+//   phone: '',
+//   email: '',
+//   linkedin: '',
+//   github: '',
+//   photo: '',
+// });
+// let nameToDisplay;
+// if (data.name === '') {
+//   nameToDisplay = 'Nombre Apellido';
+// } else {
+//   nameToDisplay = data.name;
+// }
 
-  let jobToDisplay;
-  if (data.job === '') {
-    jobToDisplay = 'Front-end developer';
-  } else {
-    jobToDisplay = data.job;
-  }
+// let jobToDisplay;
+// if (data.job === '') {
+//   jobToDisplay = 'Front-end developer';
+// } else {
+//   jobToDisplay = data.job;
+// }
+
+const Preview = (props) => {
 
   return (
     <section className="preview section-prewiew-responsive">
@@ -38,10 +40,10 @@ const SectionPreview = () => {
             <div className="preview__card--bullet js_bullet"></div>
             <div className="preview__card--title js_title">
               <h2 className="preview__card--name js_preview_name">
-                {nameToDisplay}
+                {props.name}
               </h2>
               <h3 className="preview__card--job js_preview_job">
-                {jobToDisplay}
+                {props.job}
               </h3>
             </div>
           </div>
@@ -52,7 +54,7 @@ const SectionPreview = () => {
           <ul className="preview__rrss">
             <li className="preview__rrss--phone preview__rrss--item js_item">
               <a
-                href={`tel: ${data.phone}`}
+                href={`tel: ${props.phone}`}
                 className="preview__rrss--link js_preview_phone"
               >
                 <i className="fas fa-mobile-alt js_icon"></i>
@@ -60,7 +62,7 @@ const SectionPreview = () => {
             </li>
             <li className="preview__rrss--item preview__rrss--email js_item">
               <a
-                href={`mailto: ${data.email}`}
+                href={`mailto: ${props.email}`}
                 className="preview__rrss--link js_preview_email"
               >
                 <i className="far fa-envelope js_icon"></i>
@@ -68,7 +70,7 @@ const SectionPreview = () => {
             </li>
             <li className="preview__rrss--item preview__rrss--linkdin js_item">
               <a
-                href={`https://www.linkedin.com/in/${data.linkedin}`}
+                href={`https://www.linkedin.com/in/${props.linkedin}`}
                 className="preview__rrss--link js_preview_linkedin"
                 target="_blank"
               >
@@ -77,7 +79,7 @@ const SectionPreview = () => {
             </li>
             <li className="preview__rrss--item preview__rrss--github js_item">
               <a
-                href={`https://github.com/${data.github}`}
+                href={`https://github.com/${props.github}`}
                 className="preview__rrss--link js_preview_github"
                 target="_blank"
               >
@@ -90,4 +92,4 @@ const SectionPreview = () => {
     </section>
   );
 };
-export default SectionPreview;
+export default Preview;
