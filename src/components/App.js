@@ -116,7 +116,7 @@ function App() {
 
       />
       <Form
-
+        handleInput={handleInput}
         handleChangeCollabsable={handleCollapsable} />
       <Footer />
     </>
