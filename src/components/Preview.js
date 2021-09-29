@@ -2,7 +2,6 @@ import imagePreview from '../images/img_girl.jpg';
 import '../styles/App.scss';
 
 const Preview = (props) => {
-
   return (
     <section className="preview section-prewiew-responsive">
       <div className="preview-container">
@@ -18,9 +17,7 @@ const Preview = (props) => {
               <h2 className="preview__card--name js_preview_name">
                 {props.name}
               </h2>
-              <h3 className="preview__card--job js_preview_job">
-                {props.job}
-              </h3>
+              <h3 className="preview__card--job js_preview_job">{props.job}</h3>
             </div>
           </div>
           <div

@@ -7,7 +7,6 @@ import Preview from './Preview';
 import Form from './Form';
 import { useState } from 'react';
 
-
 function App() {
   const [themeDesign, setThemeDesign] = useState('hide');
   const [themeFill, setThemeFill] = useState('hide');
@@ -27,6 +26,7 @@ function App() {
   });
 
   let nameToDisplay;
+
   if (data.name === '') {
     nameToDisplay = 'Nombre Apellido';
   } else {
@@ -39,8 +39,7 @@ function App() {
   } else {
     jobToDisplay = data.job;
   }
-  const handleInput = (value) => {
-
+  const handleInput = (value, name) => {
     if (value === 'name') {
       setData({
         ...data,
@@ -74,7 +73,6 @@ function App() {
     }
   };
   const handleCollapsable = (id) => {
-
     if (id === 'design') {
       setThemeDesign('');
       setThemeFill('hide');
@@ -112,7 +110,6 @@ function App() {
         email={data.email}
         linkedin={data.linkedin}
         github={data.github}
-
       />
       <Form
         handleInput={handleInput}
@@ -124,7 +121,6 @@ function App() {
         arrowFill={arrowFill}
         themeShare={themeShare}
         arrowShare={arrowShare}
-
       />
       <Footer />
     </>
