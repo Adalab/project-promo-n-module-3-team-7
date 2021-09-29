@@ -35,7 +35,7 @@ const Fill = (props) => {
                         placeholder="Ej: Sally Jill"
                         className="js_name"
                         value={props.inputValue}
-                        onChange={handleChangeInput}
+                        
                     />
 
                     <input
@@ -45,7 +45,7 @@ const Fill = (props) => {
                         placeholder="Ej: Front-end unicorn"
                         className=" js_job"
                         value={props.job}
-                        handleInput={props.handleInput}
+                       
                     />
 
                     <label name="img-selector">Imagen de perfil</label>
@@ -69,7 +69,7 @@ const Fill = (props) => {
                         placeholder="Ej: sally-hill@gmail.com"
                         className="js_email"
                         value={props.email}
-                        handleInput={props.handleInput}
+                       
                     />
 
                     <input
@@ -79,7 +79,7 @@ const Fill = (props) => {
                         placeholder="Ej: 555-55-55-55"
                         className="js_phone"
                         value={props.phone}
-                        handleInput={props.handleInput}
+                        
                     />
 
                     <input
@@ -89,7 +89,7 @@ const Fill = (props) => {
                         placeholder="Ej: linkedin.com/in/sally.hill"
                         className="js_linkedin"
                         value={props.linkedin}
-                        handleInput={props.handleInput}
+                        
                     />
 
                     <input
@@ -99,7 +99,7 @@ const Fill = (props) => {
                         placeholder="User Ej: sally-hill"
                         className="js_github"
                         value={props.github}
-                        handleInput={props.handleInput}
+                        
                     />
                 </section>
             </div>

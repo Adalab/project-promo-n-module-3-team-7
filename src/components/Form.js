@@ -8,6 +8,7 @@ const Form = (props) => {
       <form className="js_form">
 
         <Design
+          handleInput={props.handleInput}
           handleCollapsable={props.handleCollapsable}
           themeDesign={props.themeDesign}
           arrowDesign={props.arrowDesign}

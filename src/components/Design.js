@@ -29,9 +29,10 @@ const Design = (props) => {
                 <legend className="design__title">Colores</legend>
 
                 <div className="design__wrapper--pallets">
-                    <Palette name="palette" value="1" id="palette-one" handleInput={props.handleInput} />
-                    <Palette name="palette" value="2" id="palette-two" handleInput={props.handleInput} />
-                    <Palette name="palette" value="3" id="palette-three" handleInput={props.handleInput} />
+                    <Palette name="palette" value="1" id="palette-one" colorSpan="one" handleInput={props.handleInput} />
+                    <Palette name="palette" value="2" id="palette-two" colorSpan="two" handleInput={props.handleInput} />
+                    <Palette name="palette" value="3" id="palette-three"
+                    colorSpan="three" handleInput={props.handleInput} />
 
 
                 </div>

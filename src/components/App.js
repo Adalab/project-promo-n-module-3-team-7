@@ -25,6 +25,12 @@ function App() {
     github: '',
     photo: '',
   });
+  const [palette, setPalette] = useState({
+    textColor: '',
+    bulletColor: '',
+    iconsColor: '',
+    itemColor: '',
+  });
 
   let nameToDisplay;
   if (data.name === '') {
@@ -39,8 +45,39 @@ function App() {
   } else {
     jobToDisplay = data.job;
   }
+  
+    
   const handleInput = (value) => {
-
+    const clickedPalette = value
+    setData({
+      ...data,
+      palette: clickedPalette,
+    });
+    if (clickedPalette === '1') {
+      setPalette({
+        ...palette,
+        textColor: 'palette_1_text_color',
+        bulletColor: 'palette_1_bullet_color',
+        iconsColor: 'palette_1_icons_color',
+        itemColor: 'palette_1_item_color',
+      });
+    } else if (clickedPalette === '2') {
+      setPalette({
+        ...palette,
+        textColor: 'palette_2_text_color',
+        bulletColor: 'palette_2_bullet_color',
+        iconsColor: 'palette_2_icons_color',
+        itemColor: 'palette_2_item_color',
+      });
+    } else {
+      setPalette({
+        ...palette,
+        textColor: 'palette_3_text_color',
+        bulletColor: 'palette_3_bullet_color',
+        iconsColor: 'palette_3_icons_color',
+        itemColor: 'palette_3_item_color',
+      });
+    }
     if (value === 'name') {
       setData({
         ...data,
@@ -73,6 +110,9 @@ function App() {
       });
     }
   };
+
+  
+
   const handleCollapsable = (id) => {
 
     if (id === 'design') {
@@ -112,6 +152,10 @@ function App() {
         email={data.email}
         linkedin={data.linkedin}
         github={data.github}
+        textColor={palette.textColor}
+        bulletColor={palette.bulletColor}
+        iconsColor={palette.iconsColor}
+        itemColor={palette.itemColor}
 
       />
       <Form
