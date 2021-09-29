@@ -39,51 +39,50 @@ function App() {
   } else {
     jobToDisplay = data.job;
   }
-  const handleInput = (ev) => {
-    const whichInput = ev.currentTarget.name;
-    if (whichInput === 'name') {
+  const handleInput = (value) => {
+
+    if (value === 'name') {
       setData({
         ...data,
-        name: ev.currentTarget.value,
+        name: value,
       });
-    } else if (whichInput === 'job') {
+    } else if (value === 'job') {
       setData({
         ...data,
-        job: ev.currentTarget.value,
+        job: value,
       });
-    } else if (whichInput === 'phone') {
+    } else if (value === 'phone') {
       setData({
         ...data,
-        phone: ev.currentTarget.value,
+        phone: value,
       });
-    } else if (whichInput === 'email') {
+    } else if (value === 'email') {
       setData({
         ...data,
-        email: ev.currentTarget.value,
+        email: value,
       });
-    } else if (whichInput === 'linkedin') {
+    } else if (value === 'linkedin') {
       setData({
         ...data,
-        linkedin: ev.currentTarget.value,
+        linkedin: value,
       });
     } else {
       setData({
         ...data,
-        github: ev.currentTarget.value,
+        github: value,
       });
     }
   };
-  const handleCollapsable = (ev) => {
-    let clickedElement = ev.currentTarget.dataset.id;
-    console.log(ev.currentTarget);
-    if (clickedElement === 'design') {
+  const handleCollapsable = (id) => {
+
+    if (id === 'design') {
       setThemeDesign('');
       setThemeFill('hide');
       setThemeShare('hide');
       setArrowDesign('arrow');
       setArrowFill('');
       setArrowShare('');
-    } else if (clickedElement === 'fill') {
+    } else if (id === 'fill') {
       setThemeDesign('hide');
       setThemeFill('');
       setThemeShare('hide');
@@ -117,7 +116,16 @@ function App() {
       />
       <Form
         handleInput={handleInput}
-        handleChangeCollabsable={handleCollapsable} />
+        handleCollapsable={handleCollapsable}
+        //job={data.job}
+        themeDesign={themeDesign}
+        arrowDesign={arrowDesign}
+        themeFill={themeFill}
+        arrowFill={arrowFill}
+        themeShare={themeShare}
+        arrowShare={arrowShare}
+
+      />
       <Footer />
     </>
   );

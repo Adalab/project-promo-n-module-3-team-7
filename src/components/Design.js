@@ -1,13 +1,17 @@
 import Palette from './Palette';
 const Design = (props) => {
+    const handleChange = (ev) => {
 
+        props.handleCollapsable(ev.currentTarget.dataset.id);
+
+    };
     return (
         <fieldset className="design">
             <div className="page-wrapper">
                 <div
                     className="js-collapsible collapsable__section--title-1 js_collapsable_design_button"
                     data-id="design"
-                    onClick={props.handleChangeCollapsable}
+                    onClick={handleChange}
                 >
                     <div className="title-icon">
                         <i className="far fa-object-ungroup"></i>
@@ -20,49 +24,16 @@ const Design = (props) => {
             </div>
 
             <div
-                className={`page-wrapper design__container selection js_collapsable_design ${themeDesign}`}
+                className={`page-wrapper design__container selection js_collapsable_design ${props.themeDesign}`}
             >
                 <legend className="design__title">Colores</legend>
 
                 <div className="design__wrapper--pallets">
-                    <Palette name="palette" value="1" id="palette-one" handleInput={props.handleInput}/>
-                    <Palette name="palette" value="2" id="palette-two" handleInput={props.handleInput}/>
-                    <Palette name="palette" value="3" id="palette-three" handleInput={props.handleInput}/>
-                   
+                    <Palette name="palette" value="1" id="palette-one" handleInput={props.handleInput} />
+                    <Palette name="palette" value="2" id="palette-two" handleInput={props.handleInput} />
+                    <Palette name="palette" value="3" id="palette-three" handleInput={props.handleInput} />
 
-                   {/*} <div className="design__palette design__palette--two">
-                        <div className="design__palette--input">
-                            <input
-                                className="design__input js_palette js_palette_two"
-                                id="palette-two"
-                                type="radio"
-                                value="2"
-                                name="palette"
-                            />
-                        </div>
-                        <label htmlFor="palette" className="design__wrapper-palette">
-                            <span className="box-design design__palette--two-color-one"></span>
-                            <span className="box-design design__palette--two-color-two"></span>
-                            <span className="box-design design__palette--two-color-three"></span>
-                        </label>
-                    </div>
 
-                    <div className="design__palette design__palette--three">
-                        <div className="design__palette--input">
-                            <input
-                                className="design__input js_palette js_palette_three"
-                                id="palette-three"
-                                type="radio"
-                                value="3"
-                                name="palette"
-                            />
-                        </div>
-                        <label htmlFor="palette1" className="design__wrapper-palette">
-                            <span className="box-design design__palette--three-color-one"></span>
-                            <span className="box-design design__palette--three-color-two"></span>
-                            <span className="box-design design__palette--three-color-three"></span>
-                        </label>
-    </div>*/}
                 </div>
             </div>
         </fieldset>

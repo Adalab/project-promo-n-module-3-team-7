@@ -1,29 +1,5 @@
 import imagePreview from '../images/img_girl.jpg';
 import '../styles/App.scss';
-//import { useState } from 'react';
-// const [data, setData] = useState({
-//   palette: '',
-//   name: '',
-//   job: '',
-//   phone: '',
-//   email: '',
-//   linkedin: '',
-//   github: '',
-//   photo: '',
-// });
-// let nameToDisplay;
-// if (data.name === '') {
-//   nameToDisplay = 'Nombre Apellido';
-// } else {
-//   nameToDisplay = data.name;
-// }
-
-// let jobToDisplay;
-// if (data.job === '') {
-//   jobToDisplay = 'Front-end developer';
-// } else {
-//   jobToDisplay = data.job;
-// }
 
 const Preview = (props) => {
 
