@@ -5,7 +5,8 @@ import Header from './Header';
 import Preview from './Preview';
 import Form from './Form';
 import Footer from './Footer';
-import { useState } from 'react';
+import ls from '../services/localStorage'
+import {useEffect, useState } from 'react';
 
 function App() {
   const [themeDesign, setThemeDesign] = useState('hide');
@@ -14,7 +15,7 @@ function App() {
   const [arrowDesign, setArrowDesign] = useState('');
   const [arrowFill, setArrowFill] = useState('');
   const [arrowShare, setArrowShare] = useState('');
-  const [data, setData] = useState({
+  const [data, setData] = useState(ls.get('data',{
     palette: '',
     name: '',
     job: '',
@@ -23,13 +24,29 @@ function App() {
     linkedin: '',
     github: '',
     photo: '',
-  });
+  }));
   const [palette, setPalette] = useState({
     textColor: '',
     bulletColor: '',
     iconsColor: '',
     itemColor: '',
   });
+
+  useEffect(() => {
+    // Guardamos el nombre y el email en el local storage
+    ls.set('data', {
+      palette: data.palette,
+      name: data.name,
+      job: data.job,
+      phone: data.phone,
+      email: data.email,
+      linkedin: data.linkedin,
+      github: data.github,
+      photo: '',
+    });
+    // Este useEffect solo se ejecutará cuando cambie el nombre o el email
+    console.log(data);
+  }, [data]);
 
   let nameToDisplay;
   if (data.name === '') {
@@ -45,20 +62,14 @@ function App() {
     jobToDisplay = data.job;
   }
 
+
+
   //funcion de reset de datos del formulario, hay que hacer que borre localstorage tambien
 
-  const handleReset = (ev) =>{
-    ev.preventDefault();
-    setData({ 
-      palette: '',
-      name: '',
-      job: '',
-      phone: '',
-      email: '',
-      linkedin: '',
-      github: '',
-      photo: '',
-    });
+  const handleReset = () =>{
+    
+    localStorage.clear();
+    window.location.reload(true);
   }
 
   //funcion que controla las paletas, va con ev.target.value. Mandamos por props la funcion handlePalette a Palette y nos sube a /////app el valor de ev.target.value. props van de app a form a design y a palette, y la misma funcion sube los datos a App (vlue)

@@ -36,6 +36,7 @@ const Fill = (props) => {
                         placeholder="Ej: Sally Jill"
                         className="name"
                         handleInput={props.handleInput}
+                        handleReset={props.handleReset}
                     />
 
                    <Input

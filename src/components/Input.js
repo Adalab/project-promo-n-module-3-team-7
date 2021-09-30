@@ -12,6 +12,7 @@ const Input = (props) => {
         placeholder={props.placeholder}
         className={props.className}
         onChange={handleInput}
+        
        
       />
     </>

@@ -13,6 +13,7 @@ const Form = (props) => {
           arrowDesign={props.arrowDesign}
         />
         <Fill
+          handleReset={props.handleReset}
           handleCollapsable={props.handleCollapsable}
           handleInput={props.handleInput}
           themeFill={props.themeFill}
