@@ -67,7 +67,6 @@ function App() {
   //funcion de reset de datos del formulario, hay que hacer que borre localstorage tambien
 
   const handleReset = () =>{
-    
     localStorage.clear();
     window.location.reload(true);
   }
