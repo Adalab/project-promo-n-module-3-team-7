@@ -1,6 +1,6 @@
 const Palette = (props) => {
-    const handleInput = (ev) => {
-        props.handleInput(ev.target.value, ev.target.name);
+    const handlePalette = (ev) => {
+        props.handlePalette(ev.target.value);
     };
     return(
         <div className={`design__palette design__palette--${props.colorSpan}`}>
@@ -11,7 +11,7 @@ const Palette = (props) => {
                                 type="radio"
                                 value={props.value}
                                 name={props.name}
-                                onChange={handleInput}
+                                onChange={handlePalette}
                             />
                         </div>
                         <label htmlFor="palette" className="design__wrapper-palette">

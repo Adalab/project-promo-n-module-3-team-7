@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Design from "./Design";
 import Fill from "./Fill";
 import Share from "./Share";
@@ -8,17 +7,16 @@ const Form = (props) => {
       <form className="js_form">
 
         <Design
-          handleInput={props.handleInput}
+          handlePalette={props.handlePalette}
           handleCollapsable={props.handleCollapsable}
           themeDesign={props.themeDesign}
           arrowDesign={props.arrowDesign}
         />
         <Fill
           handleCollapsable={props.handleCollapsable}
+          handleInput={props.handleInput}
           themeFill={props.themeFill}
           arrowFill={props.arrowFill}
-          handleInput={props.handleInput}
-          inputValue={props.inputValue}
 
         />
         <Share

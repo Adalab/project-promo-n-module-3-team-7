@@ -2,11 +2,10 @@
 
 import '../styles/App.scss';
 import Header from './Header';
-import Footer from './Footer';
 import Preview from './Preview';
 import Form from './Form';
+import Footer from './Footer';
 import { useState } from 'react';
-
 
 function App() {
   const [themeDesign, setThemeDesign] = useState('hide');
@@ -45,17 +44,33 @@ function App() {
   } else {
     jobToDisplay = data.job;
   }
-  
-    
-  const handleInput = (value) => {
-    const clickedPalette = value
+
+  //funcion de reset de datos del formulario, hay que hacer que borre localstorage tambien
+
+  const handleReset = (ev) =>{
+    ev.preventDefault();
+    setData({ 
+      palette: '',
+      name: '',
+      job: '',
+      phone: '',
+      email: '',
+      linkedin: '',
+      github: '',
+      photo: '',
+    });
+  }
+
+  //funcion que controla las paletas, va con ev.target.value. Mandamos por props la funcion handlePalette a Palette y nos sube a /////app el valor de ev.target.value. props van de app a form a design y a palette, y la misma funcion sube los datos a App (vlue)
+
+  const handlePalette = (value) => {
+    const clickedPalette = value;
     setData({
       ...data,
       palette: clickedPalette,
     });
     if (clickedPalette === '1') {
       setPalette({
-        ...palette,
         textColor: 'palette_1_text_color',
         bulletColor: 'palette_1_bullet_color',
         iconsColor: 'palette_1_icons_color',
@@ -63,7 +78,6 @@ function App() {
       });
     } else if (clickedPalette === '2') {
       setPalette({
-        ...palette,
         textColor: 'palette_2_text_color',
         bulletColor: 'palette_2_bullet_color',
         iconsColor: 'palette_2_icons_color',
@@ -71,34 +85,41 @@ function App() {
       });
     } else {
       setPalette({
-        ...palette,
         textColor: 'palette_3_text_color',
         bulletColor: 'palette_3_bullet_color',
         iconsColor: 'palette_3_icons_color',
         itemColor: 'palette_3_item_color',
       });
     }
-    if (value === 'name') {
+  };
+
+  //funcion que controla los inputs, va con el ev.target.value para recoger el valor en el objeto y mandarlo a la api y mandarlo
+  // a preview y que se pinte en preview, y con el name para identificar el input en el que estamos escribiendo. Bajamos a input la 
+  //funcion handleInput por props y desde input nos sube los valores de ev.target.value y ev target.name (props van de app a form a fill y a input y  la misma funcion sube por la misma ruta los datos a App (value y name)
+
+  const handleInput = (value, name) => {
+    const whichInput = name;
+    if (whichInput === 'name') {
       setData({
         ...data,
         name: value,
       });
-    } else if (value === 'job') {
+    } else if (whichInput === 'job') {
       setData({
         ...data,
         job: value,
       });
-    } else if (value === 'phone') {
+    } else if (whichInput === 'phone') {
       setData({
         ...data,
         phone: value,
       });
-    } else if (value === 'email') {
+    } else if (whichInput === 'email') {
       setData({
         ...data,
         email: value,
       });
-    } else if (value === 'linkedin') {
+    } else if (whichInput === 'linkedin') {
       setData({
         ...data,
         linkedin: value,
@@ -111,10 +132,7 @@ function App() {
     }
   };
 
-  
-
   const handleCollapsable = (id) => {
-
     if (id === 'design') {
       setThemeDesign('');
       setThemeFill('hide');
@@ -144,32 +162,34 @@ function App() {
   return (
     <>
       <Header />
-
-      <Preview
-        name={nameToDisplay}
-        job={jobToDisplay}
-        phone={data.phone}
-        email={data.email}
-        linkedin={data.linkedin}
-        github={data.github}
-        textColor={palette.textColor}
-        bulletColor={palette.bulletColor}
-        iconsColor={palette.iconsColor}
-        itemColor={palette.itemColor}
-
-      />
-      <Form
-        handleInput={handleInput}
-        handleCollapsable={handleCollapsable}
-        //job={data.job}
-        themeDesign={themeDesign}
-        arrowDesign={arrowDesign}
-        themeFill={themeFill}
-        arrowFill={arrowFill}
-        themeShare={themeShare}
-        arrowShare={arrowShare}
-
-      />
+      <main class="profile-cards__main">
+        <div class="main-responsive">
+          <Preview
+            name={nameToDisplay}
+            job={jobToDisplay}
+            phone={data.phone}
+            email={data.email}
+            linkedin={data.linkedin}
+            github={data.github}
+            textColor={palette.textColor}
+            bulletColor={palette.bulletColor}
+            iconsColor={palette.iconsColor}
+            itemColor={palette.itemColor}
+            handleReset={handleReset}
+          />
+          <Form
+            handlePalette={handlePalette}
+            handleInput={handleInput}
+            handleCollapsable={handleCollapsable}
+            themeDesign={themeDesign}
+            arrowDesign={arrowDesign}
+            themeFill={themeFill}
+            arrowFill={arrowFill}
+            themeShare={themeShare}
+            arrowShare={arrowShare}
+          />
+        </div>
+      </main>
       <Footer />
     </>
   );

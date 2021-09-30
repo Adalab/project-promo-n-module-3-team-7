@@ -6,7 +6,7 @@ const Preview = (props) => {
   return (
     <section className="preview section-prewiew-responsive">
       <div className="preview-container">
-        <div className="preview__button js-preview__button">
+        <div className="preview__button js-preview__button" onClick={props.handleReset}>
           <i className="far fa-trash-alt"></i>
           <p className="preview__button--reset ">Reset</p>
         </div>

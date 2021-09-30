@@ -1,11 +1,10 @@
+import Input from "./Input";
+
 const Fill = (props) => {
     const handleChange = (ev) => {
         props.handleCollapsable(ev.currentTarget.dataset.id);
     };
 
-    const handleChangeInput = (ev) => {
-        return props.handleInput(ev.currentTarget.value);
-    };
     return (
         <fieldset className="fill">
             <div className="page-wrapper">
@@ -28,27 +27,29 @@ const Fill = (props) => {
                 <section
                     className={`fill__section--form js_collapsable_fill ${props.themeFill}`}
                 >
-                    <input
+                    <Input
+                        htmlFor="name"
                         label="Nombre Completo "
+                        type="text"
                         id="name"
                         name="name"
                         placeholder="Ej: Sally Jill"
-                        className="js_name"
-                        value={props.inputValue}
-                        
+                        className="name"
+                        handleInput={props.handleInput}
                     />
 
-                    <input
+                   <Input
+                        htmlFor="position"
                         label="Puesto"
+                        type="text"
                         id="job"
                         name="job"
                         placeholder="Ej: Front-end unicorn"
-                        className=" js_job"
-                        value={props.job}
-                       
+                        className="job"
+                        handleInput={props.handleInput}
                     />
 
-                    <label name="img-selector">Imagen de perfil</label>
+                    {/*<label name="img-selector">Imagen de perfil</label>
                     <div className="action">
                         <label className="action__upload-btn" htmlFor="img-selector">
                             Añadir imagen
@@ -60,47 +61,44 @@ const Fill = (props) => {
                             className="action__hiddenField js__profile-upload-btn"
                         />
                         <div className="profile__preview js__profile-preview"></div>
-                    </div>
+                        </div>*/}
 
-                    <input
+                    <Input
+                        htmlFor="email"
                         label="Email"
-                        id="Email"
-                        name="Email"
+                        type="email"
+                        id="email"
+                        name="email"
                         placeholder="Ej: sally-hill@gmail.com"
-                        className="js_email"
-                        value={props.email}
-                       
+                        handleInput={props.handleInput}
                     />
 
-                    <input
-                        label="phone"
+                    <Input
+                        htmlFor="phone"
+                        label="Teléfono"
                         id="phone"
                         name="phone"
                         placeholder="Ej: 555-55-55-55"
-                        className="js_phone"
-                        value={props.phone}
-                        
+                        handleInput={props.handleInput}
                     />
 
-                    <input
+                    <Input
+                        htmlFor="linkedin"
                         label="LinkedIn"
                         id="linkedin"
                         name="linkedin"
                         placeholder="Ej: linkedin.com/in/sally.hill"
-                        className="js_linkedin"
-                        value={props.linkedin}
-                        
+                        handleInput={props.handleInput}
                     />
 
-                    <input
+                    <Input
+                        htmlFor="github"
                         label="GitHub"
                         id="github"
                         name="github"
                         placeholder="User Ej: sally-hill"
-                        className="js_github"
-                        value={props.github}
-                        
-                    />
+                        handleInput={props.handleInput}
+                   />
                 </section>
             </div>
         </fieldset>
