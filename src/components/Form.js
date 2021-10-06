@@ -18,6 +18,7 @@ const Form = (props) => {
           handleInput={props.handleInput}
           themeFill={props.themeFill}
           arrowFill={props.arrowFill}
+          handleImage={props.handleImage}
 
         />
         <Share

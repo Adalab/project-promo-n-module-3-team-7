@@ -2,6 +2,17 @@ import imagePreview from '../images/img_girl.jpg';
 import '../styles/App.scss';
 
 const Preview = (props) => {
+<<<<<<< HEAD
+=======
+  const avatar = () => {
+    if (props.photo === '') {
+      return (imagePreview)
+    } else {
+      return (props.photo)
+    }
+
+  }
+>>>>>>> 3e7c3e3410f8715ebff26afd0c33e69178fa6866
   return (
     <section className="preview section-prewiew-responsive">
       <div className="preview-container">
@@ -33,7 +44,7 @@ const Preview = (props) => {
           </div>
           <div
             className="js__profile-image preview__photo"
-            style={{ backgroundImage: `url(${imagePreview})` }}
+            style={{ backgroundImage: `url(${avatar()})` }}
           ></div>
           <ul className="preview__rrss">
             <li
