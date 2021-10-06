@@ -5,7 +5,7 @@ import Header from './Header';
 import Preview from './Preview';
 import Form from './Form';
 import Footer from './Footer';
-import ls from '../services/localStorage'
+import ls from '../services/localStorage';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -15,16 +15,18 @@ function App() {
   const [arrowDesign, setArrowDesign] = useState('');
   const [arrowFill, setArrowFill] = useState('');
   const [arrowShare, setArrowShare] = useState('');
-  const [data, setData] = useState(ls.get('data', {
-    palette: '',
-    name: '',
-    job: '',
-    phone: '',
-    email: '',
-    linkedin: '',
-    github: '',
-    photo: '',
-  }));
+  const [data, setData] = useState(
+    ls.get('data', {
+      palette: '',
+      name: '',
+      job: '',
+      phone: '',
+      email: '',
+      linkedin: '',
+      github: '',
+      photo: '',
+    })
+  );
   const [palette, setPalette] = useState({
     textColor: '',
     bulletColor: '',
@@ -62,14 +64,12 @@ function App() {
     jobToDisplay = data.job;
   }
 
-
-
   //funcion de reset de datos del formulario, hay que hacer que borre localstorage tambien
 
   const handleReset = () => {
     localStorage.clear();
     window.location.reload(true);
-  }
+  };
 
   //funcion que controla las paletas, va con ev.target.value. Mandamos por props la funcion handlePalette a Palette y nos sube a /////app el valor de ev.target.value. props van de app a form a design y a palette, y la misma funcion sube los datos a App (vlue)
 
@@ -104,7 +104,7 @@ function App() {
   };
 
   //funcion que controla los inputs, va con el ev.target.value para recoger el valor en el objeto y mandarlo a la api y mandarlo
-  // a preview y que se pinte en preview, y con el name para identificar el input en el que estamos escribiendo. Bajamos a input la 
+  // a preview y que se pinte en preview, y con el name para identificar el input en el que estamos escribiendo. Bajamos a input la
   //funcion handleInput por props y desde input nos sube los valores de ev.target.value y ev target.name (props van de app a form a fill y a input y  la misma funcion sube por la misma ruta los datos a App (value y name)
 
   const handleInput = (value, name) => {
@@ -170,15 +170,15 @@ function App() {
   //const styles = `page-wrapper design__container selection js_collapsable_design ${theme}`;
   const handleImage = (file) => {
     setData({ ...data, photo: file });
-    console.log('hola aqui foto ')
-    console.log(data)
+    console.log('hola aqui foto ');
+    console.log(data);
   };
 
   return (
     <>
       <Header />
-      <main class="profile-cards__main">
-        <div class="main-responsive">
+      <main className="profile-cards__main">
+        <div className="main-responsive">
           <Preview
             name={nameToDisplay}
             job={jobToDisplay}
@@ -204,6 +204,7 @@ function App() {
             themeShare={themeShare}
             arrowShare={arrowShare}
             handleImage={handleImage}
+            photo={data.photo}
           />
         </div>
       </main>

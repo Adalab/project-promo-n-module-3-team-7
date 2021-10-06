@@ -2,46 +2,46 @@
   margin: 10px 0 30px;
 
   &__section--form {
-    display       : flex;
+    display: flex;
     flex-direction: column;
-    font-family   : $body-font;
-    font-size     : 14px;
-    line-height   : 20px;
-    color         : $dark-green-blue;
-    padding       : 25px 0;
+    font-family: $body-font;
+    font-size: 14px;
+    line-height: 20px;
+    color: $dark-green-blue;
+    padding: 25px 0;
 
     input {
-      color       : $hospital-green;
-      box-sizing  : border-box;
-      font-size   : 14px;
-      height      : 45px;
+      color: $hospital-green;
+      box-sizing: border-box;
+      font-size: 14px;
+      height: 45px;
       border-color: $hospital-green;
       border-style: solid;
       border-width: 1px;
-      margin      : 7px 0 13px 0;
+      margin: 7px 0 13px 0;
       padding-left: 9px;
     }
 
     .action {
-      margin-top    : 10px;
-      margin-bottom : 20px;
-      display       : flex;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      display: flex;
       flex-direction: row;
 
       &__upload-btn {
-        background   : $dull;
+        background: $dull;
         border-radius: 3px;
-        border       : 0;
-        box-shadow   : 0 0 4px 0 rgba(0, 0, 0, 0.32);
-        box-sizing   : border-box;
-        color        : $white;
-        font-family  : $body-font;
-        font-size    : 14px;
-        width        : 140px;
-        height       : 30px;
-        line-height  : 20px;
-        cursor       : pointer;
-        padding      : 5px 20px;
+        border: 0;
+        box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.32);
+        box-sizing: border-box;
+        color: $white;
+        font-family: $body-font;
+        font-size: 14px;
+        width: 140px;
+        height: 30px;
+        line-height: 20px;
+        cursor: pointer;
+        padding: 5px 20px;
       }
 
       &__hiddenField {
@@ -53,14 +53,13 @@
 
     .profile__preview {
       background-position: center;
-      background-repeat  : no-repeat;
-      background-size    : cover;
-      border             : 1px solid #ccc;
-      width              : 30px;
-      height             : 30px;
-      margin-left        : 15px;
-      border             : solid 1px $hospital-green;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border: 1px solid #ccc;
+      width: 30px;
+      height: 30px;
+      margin-left: 15px;
+      border: solid 1px $hospital-green;
     }
   }
 }
-
