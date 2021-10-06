@@ -1,5 +1,5 @@
 import Input from "./Input";
-
+import ImageReader from "./ImageReader";
 const Fill = (props) => {
     const handleChange = (ev) => {
         props.handleCollapsable(ev.currentTarget.dataset.id);
@@ -39,7 +39,7 @@ const Fill = (props) => {
                         handleReset={props.handleReset}
                     />
 
-                   <Input
+                    <Input
                         htmlFor="position"
                         label="Puesto"
                         type="text"
@@ -49,20 +49,14 @@ const Fill = (props) => {
                         className="job"
                         handleInput={props.handleInput}
                     />
-
-                    {/*<label name="img-selector">Imagen de perfil</label>
+                    <label name="img-selector">Imagen de perfil</label>
                     <div className="action">
                         <label className="action__upload-btn" htmlFor="img-selector">
                             Añadir imagen
                         </label>
-                        <input
-                            type="file"
-                            name="photo"
-                            id="img-selector"
-                            className="action__hiddenField js__profile-upload-btn"
-                        />
-                        <div className="profile__preview js__profile-preview"></div>
-                        </div>*/}
+                        <ImageReader handleImage={props.handleImage} />                        <div className="profile__preview js__profile-preview"></div>
+                    </div>
+
 
                     <Input
                         htmlFor="email"
@@ -99,7 +93,9 @@ const Fill = (props) => {
                         name="github"
                         placeholder="User Ej: sally-hill"
                         handleInput={props.handleInput}
-                   />
+                    />
+
+
                 </section>
             </div>
         </fieldset>

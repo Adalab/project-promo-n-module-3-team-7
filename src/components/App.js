@@ -6,7 +6,7 @@ import Preview from './Preview';
 import Form from './Form';
 import Footer from './Footer';
 import ls from '../services/localStorage'
-import {useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [themeDesign, setThemeDesign] = useState('hide');
@@ -15,7 +15,7 @@ function App() {
   const [arrowDesign, setArrowDesign] = useState('');
   const [arrowFill, setArrowFill] = useState('');
   const [arrowShare, setArrowShare] = useState('');
-  const [data, setData] = useState(ls.get('data',{
+  const [data, setData] = useState(ls.get('data', {
     palette: '',
     name: '',
     job: '',
@@ -66,7 +66,7 @@ function App() {
 
   //funcion de reset de datos del formulario, hay que hacer que borre localstorage tambien
 
-  const handleReset = () =>{
+  const handleReset = () => {
     localStorage.clear();
     window.location.reload(true);
   }
@@ -168,6 +168,11 @@ function App() {
   };
 
   //const styles = `page-wrapper design__container selection js_collapsable_design ${theme}`;
+  const handleImage = (file) => {
+    setData({ ...data, photo: file });
+    console.log('hola aqui foto ')
+    console.log(data)
+  };
 
   return (
     <>
@@ -178,6 +183,7 @@ function App() {
             name={nameToDisplay}
             job={jobToDisplay}
             phone={data.phone}
+            photo={data.photo}
             email={data.email}
             linkedin={data.linkedin}
             github={data.github}
@@ -197,6 +203,7 @@ function App() {
             arrowFill={arrowFill}
             themeShare={themeShare}
             arrowShare={arrowShare}
+            handleImage={handleImage}
           />
         </div>
       </main>
