@@ -46,7 +46,7 @@ function App() {
       email: data.email,
       linkedin: data.linkedin,
       github: data.github,
-      photo: '',
+      photo: data.photo,
     });
     // Este useEffect solo se ejecutará cuando cambie el nombre o el email
     console.log(data);
@@ -216,7 +216,8 @@ function App() {
             handleImage={handleImage}
             photo={data.photo}
             data={data}
-            success = {success}
+            success={success}
+            error={error}
             handleError={handleError}
             handleSuccess={handleSuccess}
           />
