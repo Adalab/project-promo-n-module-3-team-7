@@ -2,9 +2,13 @@ import Design from './Design';
 import Fill from './Fill';
 import Share from './Share';
 const Form = (props) => {
+  const handleSubmit =(ev)=>{
+    ev.preventDefault(); 
+  }
+
   return (
     <section className="section-options-responsive">
-      <form className="js_form">
+      <form className="js_form" onSubmit={handleSubmit}>
         <Design
           handlePalette={props.handlePalette}
           handleCollapsable={props.handleCollapsable}
@@ -27,6 +31,7 @@ const Form = (props) => {
           data={props.data}
           handleError={props.handleError}
           handleSuccess={props.handleSuccess}
+          success={props.success}
         />
       </form>
     </section>

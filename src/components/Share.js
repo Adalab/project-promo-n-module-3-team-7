@@ -4,7 +4,7 @@ const Share = (props) => {
   };
   const handleCreate = () => {
     console.log(props.data);
-
+    debugger; 
     fetch('https://awesome-profile-cards.herokuapp.com/card', {
       method: 'POST',
       body: JSON.stringify(props.data),
@@ -53,7 +53,7 @@ const Share = (props) => {
             <i className="icon2 far fa-address-card"></i> &nbsp;Crear tarjeta
           </button>
 
-          <div className="share__section--done js_card--done hidden">
+          <div className="share__section--done js_card--done">
             <h2 className="share__section--done__text js_undone">
               La tarjeta ha sido creada:
             </h2>
@@ -62,7 +62,7 @@ const Share = (props) => {
               href="#"
               target="_blank"
             >
-              https://awesome-profile-card.com?id=A456DF0001
+              {props.success}
             </a>
 
             <button className="share__section--done__button js_undone2">

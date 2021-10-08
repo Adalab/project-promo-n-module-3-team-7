@@ -216,6 +216,7 @@ function App() {
             handleImage={handleImage}
             photo={data.photo}
             data={data}
+            success = {success}
             handleError={handleError}
             handleSuccess={handleSuccess}
           />
