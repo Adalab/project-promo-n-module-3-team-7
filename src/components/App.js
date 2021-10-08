@@ -15,6 +15,8 @@ function App() {
   const [arrowDesign, setArrowDesign] = useState('');
   const [arrowFill, setArrowFill] = useState('');
   const [arrowShare, setArrowShare] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
   const [data, setData] = useState(
     ls.get('data', {
       palette: '',
@@ -174,6 +176,14 @@ function App() {
     console.log(data);
   };
 
+  const handleError = (value) => {
+    setError(value);
+  };
+
+  const handleSuccess = (value) => {
+    setSuccess(value);
+  };
+
   return (
     <>
       <Header />
@@ -205,6 +215,9 @@ function App() {
             arrowShare={arrowShare}
             handleImage={handleImage}
             photo={data.photo}
+            data={data}
+            handleError={handleError}
+            handleSuccess={handleSuccess}
           />
         </div>
       </main>
