@@ -4,7 +4,7 @@ const Share = (props) => {
   };
   const handleCreate = () => {
     console.log(props.data);
-    fetch('https://awesome-profile-cards.herokuapp.com/card', {
+    fetch('http://localhost:3000/card', {
       method: 'POST',
       body: JSON.stringify(props.data),
       headers: {
