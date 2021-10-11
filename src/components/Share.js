@@ -32,32 +32,51 @@ const Share = (props) => {
         }
       });
   };
-  //   const renderError = (props) => {
-  //     if (props.data.error.includes('name')) {
-  //       return 'Ups❕ 😓, debes rellenar tu nombre';
-  //     } else if (props.error === 'Mandatory fields: job') {
-  //       return 'Ups❕ 😓, debes rellenar tu profesión';
-  //     } else {
-  //       return 'Ups❕ 😓, debes rellenar tu foto';
-  // } else {
-  //     return 'Ups❕ 😓, debes rellenar tu email';
-  //   } else if (response.error === 'Mandatory fields: name') {
-  //     return;
-  //     ('Ups❕ 😓, debes rellenar correctamente tu email, falta un @ o algo más 😉');
-  //   } else if (error.phone === '') {
-  //     return 'Ups❕ 😓, debes rellenar tu móvil';
-  //   } else if (!validatePhone(error.phone)) {
-  //     return;
-  //     ('Ups❕ 😓, debes rellenar completo tu móvil, falta algo 😉');
-  //   } else if (error.linkedin === '') {
-  //     return 'Ups❕ 😓, debes rellenar tu linkedin';
-  //   } else if (error.github === '') {
-  //     return 'Ups❕ 😓, debes rellenar tu github';
-  //   } else if (error.palette === '') {
-  //     return;
-  //     ('Ups❕ 😓, debes escojer una paleta de colores 🌈');
-  //  }
-  //};
+     const renderResponse = () => {
+       if(props.success && props.error===''){
+         return ( 
+           <>
+         <h2 className="share__section--done__text js_undone">
+         La tarjeta ha sido creada:
+       </h2>
+       <a
+         className="share__section--done__link js_url"
+         href={`${props.success}`}
+         target="_blank"
+         rel="noreferrer"
+       >{props.success}
+       </a>
+       <button className="share__section--done__button js_undone2">
+              <a
+                className="share__section--done__button--link js_twitter_link"
+                href={`https://twitter.com/intent/tweet?url=${props.success}`}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <i className="icon3 fab fa-twitter"></i> &nbsp; Compartir en
+                twitter
+              </a>
+            </button>
+       </>);
+       }else if(props.success==='' && props.error){
+       if (props.error.includes('name')) {
+        return 'Ups❕ 😓, debes rellenar tu nombre';
+      } else if (props.error.includes('job')) {
+        return 'Ups❕ 😓, debes rellenar tu profesión';
+      } else if  (props.error.includes('photo')){
+       return 'Ups❕ 😓, debes rellenar tu foto';
+     } else if  (props.error.includes('email')){
+        return 'Ups❕ 😓, debes rellenar tu email';
+     } else if (props.error.includes('phone')){
+       return 'Ups❕ 😓, debes rellenar tu móvil';
+     } else if (props.error.includes('linkedin')) {
+       return 'Ups❕ 😓, debes rellenar tu linkedin';
+     } else if (props.error.includes('github')) {
+       return 'Ups❕ 😓, debes rellenar tu github';
+     } else{
+       return'Ups❕ 😓, debes escoger una paleta de colores 🌈';
+    }}
+  };
 
   return (
     <fieldset className="share ">
@@ -87,28 +106,8 @@ const Share = (props) => {
           </button>
 
           <div className="share__section--done js_card--done">
-            <h2 className="share__section--done__text js_undone">
-              La tarjeta ha sido creada:
-            </h2>
-            <a
-              className="share__section--done__link js_url"
-              href="#"
-              target="_blank"
-            >
-              {props.success}
-              {/*{renderError()}*/}
-            </a>
+           {renderResponse()}
 
-            <button className="share__section--done__button js_undone2">
-              <a
-                className="share__section--done__button--link js_twitter_link"
-                href=""
-                target="_blank"
-              >
-                <i className="icon3 fab fa-twitter"></i> &nbsp; Compartir en
-                twitter
-              </a>
-            </button>
           </div>
         </div>
       </div>
