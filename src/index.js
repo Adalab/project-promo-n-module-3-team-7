@@ -10,6 +10,7 @@ server.use(
     limit: '50mb',
   })
 );
+server.set('view engine', 'ejs');
 
 //3 Arrancar servidor
 const serverPort = 3001;
@@ -54,6 +55,18 @@ server.post('/card', (req, res) => {
     res.json(response);
   }
 });
+
+server.get("/previewcard/:name", (req,res) =>{
+  console.log(req.params.name);
+  const requestCard = req.params.name;
+  //const requestPostData = posts.find (post =>post.slug === requestPostSlug);
+  //console.log(requestPostData);
+  //requestPostData.catList= requestPostData.categories.split(',');
+  
+  //pasarsela a la plantilla
+  res.render('viewcard');
+  //busca en la carpeta de views cual es la plantilla que se llama views
+})
 
 const serverStaticPath = './public';
 server.use(express.static(serverStaticPath));
