@@ -41,7 +41,6 @@ server.get('/card/:id', (req, res) => {
 server.post('/card', (req, res) => {
   let cardURL = '';
   let error = '';
-
   console.log(req.body.name);
   if (req.body.name === '') {
     error = 'name';
@@ -60,12 +59,15 @@ server.post('/card', (req, res) => {
   } else if (req.body.palette === '') {
     error = 'palette';
   } else {
-    cardURL = 'este va a ser el enlace';
+    const query = db.prepare("INSERT INTO card(palette,name,job,phone,email,linkedin,github,photo) values(?,?,?,?,?,?,?,?)");
+    const result = query.run(req.body.palette,req.body.name,req.body.job,req.body.phone,req.body.email,req.body.linkedin,req.body.github,req.body.photo);
+    console.log(result);
+    cardURL = `http://localhost:3001/card/${result.lastInsertRowid}`;
   }
   if (cardURL !== '') {
     const response = {
       success: true,
-      cardURL: cardURL,
+      cardURL: cardURL
     };
     res.json(response);
   } else {
