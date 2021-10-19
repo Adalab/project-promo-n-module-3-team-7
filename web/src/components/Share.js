@@ -4,7 +4,8 @@ const Share = (props) => {
   };
   const handleCreate = () => {
     console.log(props.data);
-    fetch('http://localhost:3001/card', {
+    //fetch('http://localhost:3001/card',
+    fetch('/card', {
       method: 'POST',
       body: JSON.stringify(props.data),
       headers: {

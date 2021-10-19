@@ -15,11 +15,11 @@ server.use(
 server.set('view engine', 'ejs');
 
 //3 Arrancar servidor
-const serverPort = 3001;
+//const serverPort = 3001;
+const serverPort = process.env.PORT || 3001;
 server.listen(serverPort, () =>
   console.log(`Server listening at http://localhost:${serverPort}`)
 );
-
 
 //4 database
 const db = new Database('./src/db/cards.db', { verbose: console.log });
@@ -29,14 +29,11 @@ server.get('/card/:id', (req, res) => {
   //crear la tabla en base datos
   const id = req.params.id;
   //nos devuleve el id de la card
-  const query = db.prepare(`SELECT * FROM card WHERE id=?`)
+  const query = db.prepare(`SELECT * FROM card WHERE id=?`);
   const data = query.get(id);
   //se renderiza la plantilla con los datos de db
-  res.render("viewcard", data)
-
-})
-
-
+  res.render('viewcard', data);
+});
 
 server.post('/card', (req, res) => {
   let cardURL = '';
@@ -59,15 +56,26 @@ server.post('/card', (req, res) => {
   } else if (req.body.palette === '') {
     error = 'palette';
   } else {
-    const query = db.prepare("INSERT INTO card(palette,name,job,phone,email,linkedin,github,photo) values(?,?,?,?,?,?,?,?)");
-    const result = query.run(req.body.palette,req.body.name,req.body.job,req.body.phone,req.body.email,req.body.linkedin,req.body.github,req.body.photo);
+    const query = db.prepare(
+      'INSERT INTO card(palette,name,job,phone,email,linkedin,github,photo) values(?,?,?,?,?,?,?,?)'
+    );
+    const result = query.run(
+      req.body.palette,
+      req.body.name,
+      req.body.job,
+      req.body.phone,
+      req.body.email,
+      req.body.linkedin,
+      req.body.github,
+      req.body.photo
+    );
     console.log(result);
     cardURL = `http://localhost:3001/card/${result.lastInsertRowid}`;
   }
   if (cardURL !== '') {
     const response = {
       success: true,
-      cardURL: cardURL
+      cardURL: cardURL,
     };
     res.json(response);
   } else {
@@ -79,7 +87,7 @@ server.post('/card', (req, res) => {
   }
 });
 
-server.get("/previewcard/:name", (req, res) => {
+server.get('/previewcard/:name', (req, res) => {
   console.log(req.params.name);
   const requestCard = req.params.name;
   //const requestPostData = posts.find (post =>post.slug === requestPostSlug);
@@ -89,7 +97,7 @@ server.get("/previewcard/:name", (req, res) => {
   //pasarsela a la plantilla
   res.render('viewcard');
   //busca en la carpeta de views cual es la plantilla que se llama views
-})
+});
 
 const serverStaticPath = './public';
 server.use(express.static(serverStaticPath));
