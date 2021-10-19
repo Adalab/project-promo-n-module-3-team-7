@@ -70,7 +70,8 @@ server.post('/card', (req, res) => {
       req.body.photo
     );
     console.log(result);
-    cardURL = `http://localhost:3001/card/${result.lastInsertRowid}`;
+    //   cardURL = `http://localhost:3001/card/${result.lastInsertRowid}`;
+    cardURL = `https:/awsome-profile-cards.herokuapp.com/card/${result.lastInsertRowid}`;
   }
   if (cardURL !== '') {
     const response = {
